@@ -18,17 +18,13 @@ To use the script, ensure you have Python installed.
 1. **Clone the repository**:
    ```sh
    git clone https://github.com/LiorDaichman/FileCleanupTool.git
-   cd file-cleaner
-   ```
-   2. **Enter to the folder**:
-   ```sh
    cd FileCleanupTool
    ```
-3. **Install dependencies**:
+2. **Install dependencies**:
    ```sh
    pip install pyinstaller
    ```
-4. **Run the exe file**:
+3. **Run the exe file**:
    ```sh
    FileCleanupTool.exe
    ```
