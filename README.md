@@ -48,3 +48,6 @@ This project is licensed under the **MIT License**.
 ## 📩 Contact
 For any questions or suggestions, reach out via **liordaichman@gmail.com** or open an issue on GitHub.
 
+## Screenshot
+![Description of the image](image/screenshot.png)
+
