@@ -62,12 +62,22 @@ class FileCleaner:
                 else:
                     hashes[file_hash] = file_path
         
-        result_msg = f"\nFound {len(old_files)} old files and {len(duplicate_files)} duplicate files."
+        if old_files or duplicate_files:
+            file_list = "\n".join(os.path.basename(f) for f in old_files + duplicate_files)
+            result_msg = f"\nFound {len(old_files)} old files and {len(duplicate_files)} duplicate files:\n{file_list}"
+            
+            # Log file names to a text file
+            with open("files_to_delete.log", "w") as log_file:
+                log_file.write("Files marked for deletion:\n")
+                log_file.write(file_list + "\n")
+        else:
+            result_msg = "No files found for deletion."
+        
         self.result_label.config(text=result_msg)
         
         # Confirm file deletion
         if old_files or duplicate_files:
-            confirm = messagebox.askyesno("Confirm Deletion", "Files found for deletion. Proceed?")
+            confirm = messagebox.askyesno("Confirm Deletion", f"Files found for deletion:\n{file_list}\nProceed?")
             if confirm:
                 for f in old_files + duplicate_files:
                     os.remove(f)
